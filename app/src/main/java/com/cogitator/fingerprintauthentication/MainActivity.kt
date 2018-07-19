@@ -10,6 +10,7 @@ import android.security.keystore.KeyPermanentlyInvalidatedException
 import android.security.keystore.KeyProperties
 import android.security.keystore.KeyProperties.*
 import android.support.v7.app.AppCompatActivity
+import android.util.Base64
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -20,6 +21,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.IOException
 import java.security.*
+import java.security.cert.CertificateException
 import javax.crypto.*
 
 /**
@@ -71,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             // Show a message that the user hasn't set up a fingerprint or lock screen.
             showToast(getString(R.string.setup_lock_screen))
             purchaseButton.isEnabled = false
-            purchaseButtonNotInvalidated.isEnabled = false
+            purchase_button_not_invalidated.isEnabled = false
             return
         }
 
